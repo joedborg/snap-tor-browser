@@ -1,0 +1,26 @@
+name: tor-browser
+version: '7.0'
+summary: Tor Browser; protect your privacy
+description: |
+  The Tor software protects you by bouncing your communications
+  around a distributed network of relays run by volunteers all
+  around the world; it prevents somebody watching your Internet
+  connection from learning what sites you visit, it prevents the
+  sites you visit from learning your physical location, and it
+  lets you access sites which are blocked.
+grade: stable
+confinement: strict
+
+apps:
+  tor-browser:
+    command: ./Browser/start-tor-browser
+    desktop: start-tor-browser.desktop
+    plugs:
+      - x11
+      - network
+      - network-bind
+
+parts:
+  tor-browser:
+    plugin: dump
+    source: https://www.torproject.org/dist/torbrowser/7.0/tor-browser-linux64-7.0_en-US.tar.xz
